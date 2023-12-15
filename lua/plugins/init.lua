@@ -7,159 +7,91 @@
 --
 --
 -- Bootstrapping Plugins
---
-
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
+vim.g.mapleader = '<space>'
 
-return require("packer").startup(function()
-
-    use 'wbthomason/packer.nvim'
-
-    --------- AESTHETICS -----
-    --
-    --
-
-    use 'numToStr/Navigator.nvim'
-
-
-    use {
-        'folke/twilight.nvim',
-        config = function()
-            require("twilight").setup()
-        end,
-    }
-
-    use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            { 'nvim-tree/nvim-web-devicons' }
-        },
-    }
-
-    use {
+require("lazy").setup ({
+    { 
         'nvim-telescope/telescope.nvim',
-        requires = {
-            { 'nvim-lua/plenary.nvim' },
+        cmd = 'Telescope',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        },
+        opts = {
+            layout_stratergy = "vertical",
+            mappings = {
+                i = {
+                    ["<C-j>"] = "move_selection_next",
+                    ["<C-k>"] = "move_selection_previous",
+                    ["jk"] = "close",
+                }
+            }
         }
-    }
-
-    use { 'nvim-telescope/telescope-fzf-native.nvim',
-        run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }
-
-    use { 'catppuccin/nvim', as = 'catppuccin' }
-    -- Using Packer
-    use 'navarasu/onedark.nvim'
-
-    use 'folke/tokyonight.nvim'
-
-    use { 'nvim-lualine/lualine.nvim' }
-
-    use {
-        'stevearc/dressing.nvim',
-        config = function()
-            require('dressing').setup()
-        end
-    }
-
-    ------  GENERAL ------
-
-    use {
-        'numToStr/Comment.nvim',
-        config = function()
-            require("Comment").setup()
-        end,
-    }
-
-    use {
-        'windwp/nvim-autopairs',
-        config = function()
-            require("nvim-autopairs").setup()
-        end,
-    }
-
-    use {
-        'numToStr/FTerm.nvim'
-    }
-
-    use {
-        'tpope/vim-surround'
-    }
-
-    ------ PROGRAMMING ------
-
-
-    use {
+    },
+    {
+        'catppuccin/nvim',
+        name = 'catppuccin'
+    },
+    {
+        'nvim-lualine/lualine.nvim',
+        config = true,
+    },
+    { 
+        'nvim-treesitter/nvim-treesitter',
+    },
+    { 'folke/trouble.nvim', cmd = "TroubleToggle"},
+    {
         'hrsh7th/nvim-cmp',
-        requires = {
+        event = 'InsertEnter',
+        dependencies = {
             { 'hrsh7th/cmp-nvim-lsp' },
             { 'hrsh7th/cmp-buffer' },
             { 'hrsh7th/cmp-path' },
             { 'hrsh7th/cmp-cmdline' },
         }
-    }
-
-    use {
+    },
+    { 
+        'numToStr/FTerm.nvim',
+        lazy = true,
+    },
+    {
         'williamboman/mason.nvim',
-        config = function()
-            require('mason').setup()
-        end,
-    }
+        config = true,
+        cmd = "Mason",
+        ft = { "go", "python", "c" }
+    },
+    { 
+        'neovim/nvim-lspconfig' ,
+        lazy = true
+    },
+    { 
+        'echasnovski/mini.surround',
+        version = false,
+        config = true,
+    },
+    { 
+        'echasnovski/mini.pairs',
+        version = false,
+        config = true,
+        event = 'InsertEnter',
 
-    use {
-        'neovim/nvim-lspconfig',
-    }
+    },
+    { 
+        'echasnovski/mini.comment',
+        version = false,
+        config = true,
+    },
 
-    use {
-        'nvim-treesitter/nvim-treesitter'
-    }
-
-    use {
-        'lewis6991/hover.nvim',
-        config = function()
-            require("hover").setup {
-                init = function()
-                    require("hover.providers.lsp")
-                end,
-                preview_opts = {
-                    border = 'single'
-                }
-            }
-        end,
-    }
-
-    use {
-        'jose-elias-alvarez/null-ls.nvim'
-    }
-
-    ---------------------- LANGS -------------------
-    use {
-        'TheZoq2/neovim-auto-autoread'
-    }
-
-    use {
-        'epwalsh/obsidian.nvim',
-        config = function()
-            require("obsidian").setup({
-                dir = "/home/pratham/Documents/Notes/Obsidian",
-                completion = {
-                    nvim_cmp = true,
-                }
-            })
-        end,
-    }
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-
-end)
+})

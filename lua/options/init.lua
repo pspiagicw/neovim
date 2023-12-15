@@ -48,5 +48,6 @@ set.signcolumn = "yes" -- always show the sign column otherwise it would shift t
 set.wrap = false -- display lines as one long line
 set.spell = false
 set.spelllang = "en"
-set.scrolloff = 8 -- is one of my fav
+set.scrolloff = 8 -- is one of my fav, keep n lines above and below the current line visible
 set.sidescrolloff = 8
+set.autoread = true

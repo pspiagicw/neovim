@@ -33,10 +33,12 @@ map('n', '<leader>wj' , '<C-w><C-j>' , opts)
 map('n', '<leader>wc' , '<C-w>c' , opts)
 map('n', '<leader>wo' , '<C-w>o' , opts)
 map('n', '<leader>wt' , '<C-w>T' , opts)
+map('n', '<leader>we' , '<C-w>=' , opts)
 
 ----------------- TOGGLE -----------------------
 map('n', '<leader>tt' , ':lua require("FTerm").toggle()<CR>', opts)
 map('n', '<leader>tf' , ':NvimTreeToggle<CR>', opts)
+map('n', '<leader>tq' , ':copen<CR>', opts)
 
 ---------------- SEARCH ------------------------
 map('n', '<leader>ss', ':Telescope live_grep<CR>' , opts)

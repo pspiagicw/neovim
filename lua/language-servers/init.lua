@@ -19,6 +19,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>lc', ':lua vim.lsp.buf.code_action()<CR>', opts)
     buf_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', opts)
     buf_set_keymap('n', '<leader>lf', ':lua vim.lsp.buf.format { async = true }<CR>', opts)
+    buf_set_keymap('n', '<leader>lq', ':TroubleToggle<CR>', opts)
 
 end
 
@@ -37,19 +38,6 @@ nvim_lsp['pyright'].setup {
         debounce_text_changes = 150
     },
 }
-nvim_lsp['dartls'].setup {
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150
-    }
-}
-nvim_lsp['sumneko_lua'].setup {
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150
-    }
-}
-
 nvim_lsp['clangd'].setup {
     on_attach = on_attach,
     flags = {
@@ -57,11 +45,3 @@ nvim_lsp['clangd'].setup {
     }
 }
 
-local null_ls = require("null-ls")
-
-null_ls.setup({
-    sources = {
-        null_ls.builtins.diagnostics.pydocstyle,
-        null_ls.builtins.formatting.black,
-    }
-})
