@@ -3,8 +3,13 @@
 -- ██████╔╝███████╗██████╔╝██║███████║██║  ███╗██║██║     ██║ █╗ ██║
 -- ██╔═══╝ ╚════██║██╔═══╝ ██║██╔══██║██║   ██║██║██║     ██║███╗██║
 -- ██║     ███████║██║     ██║██║  ██║╚██████╔╝██║╚██████╗╚███╔███╔╝
--- ╚═╝     ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝ ╚═════╝ ╚══╝╚══╝ 
+-- ╚═╝     ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝ ╚═════╝ ╚══╝╚══╝
 local cmp = require("cmp")
+
+local cmp_opts = {
+    side_padding = 2,
+    scrollbar = false
+}
 
 cmp.setup({
     sources = cmp.config.sources({
@@ -15,8 +20,22 @@ cmp.setup({
 
     window = {
         completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(cmp_opts),
     },
+
+    -- formatting = {
+    --     format = function(entry, vim_item)
+    --         vim_item.menu = ({
+    --             nvim_lsp = "[LSP]",
+    --             buffer = "[BUFFER]",
+    --             calc = "[CALC]",
+    --             path = "[PATH]",
+    --             spell = "[SPELL]"
+    --         })[entry.source.name]
+    --         return vim_item
+    --     end
+    -- },
+
 
     mapping = cmp.mapping.preset.insert({
         ["<C-j>"] = cmp.mapping.select_next_item(),
@@ -39,7 +58,7 @@ cmp.setup({
             else
                 fallback()
             end
-        end,  { "i", "s" }),
+        end, { "i", "s" }),
 
         ["<S-Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -53,7 +72,7 @@ cmp.setup({
     })
 })
 
-cmp.setup.cmdline(":" , {
+cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
         { name = "path" },

@@ -49,4 +49,6 @@ map('n', '<leader>ss', ':Telescope live_grep<CR>' , opts)
 map('n', '[q', ':cprev<CR>', opts)
 map('n', ']q', ':cnext<CR>', opts)
 
+map('n', '<leader>lg', ':lua require("groom").run()<CR>', opts)
+
 

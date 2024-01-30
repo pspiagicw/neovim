@@ -9,4 +9,4 @@
 --     style = 'deep'
 -- }
 -- require('onedark').load()
-vim.cmd [[colorscheme catppuccin-mocha]]
+vim.cmd [[colorscheme modus_vivendi]]

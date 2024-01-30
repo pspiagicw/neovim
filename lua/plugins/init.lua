@@ -9,21 +9,21 @@
 -- Bootstrapping Plugins
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  })
+    vim.fn.system({
+        "git",
+        "clone",
+        "--filter=blob:none",
+        "https://github.com/folke/lazy.nvim.git",
+        "--branch=stable", -- latest stable release
+        lazypath,
+    })
 end
 vim.opt.rtp:prepend(lazypath)
 
 vim.g.mapleader = '<space>'
 
-require("lazy").setup ({
-    { 
+require("lazy").setup({
+    {
         'nvim-telescope/telescope.nvim',
         cmd = 'Telescope',
         dependencies = {
@@ -45,13 +45,24 @@ require("lazy").setup ({
         name = 'catppuccin'
     },
     {
+        dir = "/home/pspiagicw/code/other-projects/groom.nvim",
+        name = "groom",
+        config = function()
+            require("groom").setup()
+        end,
+    },
+    {
         'nvim-lualine/lualine.nvim',
         config = true,
     },
-    { 
+    {
         'nvim-treesitter/nvim-treesitter',
     },
-    { 'folke/trouble.nvim', cmd = "TroubleToggle"},
+    {
+        'stevearc/dressing.nvim',
+        config = true,
+    },
+    { 'folke/trouble.nvim',           cmd = "TroubleToggle" },
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
@@ -62,7 +73,7 @@ require("lazy").setup ({
             { 'hrsh7th/cmp-cmdline' },
         }
     },
-    { 
+    {
         'numToStr/FTerm.nvim',
         lazy = true,
     },
@@ -70,28 +81,38 @@ require("lazy").setup ({
         'williamboman/mason.nvim',
         config = true,
         cmd = "Mason",
-        ft = { "go", "python", "c" }
+        ft = { "go", "python", "c", "lua", "cpp" }
     },
-    { 
-        'neovim/nvim-lspconfig' ,
+    {
+        'folke/neodev.nvim',
+        opts = {}
+    },
+    {
+        'neovim/nvim-lspconfig',
         lazy = true
     },
-    { 
+    {
         'echasnovski/mini.surround',
         version = false,
         config = true,
     },
-    { 
+    {
         'echasnovski/mini.pairs',
         version = false,
         config = true,
         event = 'InsertEnter',
 
     },
-    { 
+    {
         'echasnovski/mini.comment',
         version = false,
         config = true,
     },
+    {
+        "eoh-bse/minintro.nvim",
+        config = true,
+        lazy = false,
+    },
+    { "miikanissi/modus-themes.nvim", priority = 1000 },
 
 })
