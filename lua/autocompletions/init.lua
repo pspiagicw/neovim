@@ -13,28 +13,15 @@ local cmp_opts = {
 
 cmp.setup({
     sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        { name = 'path' },
-        { name = 'buffer' },
+        { name = 'nvim_lsp', group_index = 2 },
+        { name = 'path',     group_index = 2 },
+        { name = 'buffer',   group_index = 2 },
     }),
 
     window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(cmp_opts),
     },
-
-    -- formatting = {
-    --     format = function(entry, vim_item)
-    --         vim_item.menu = ({
-    --             nvim_lsp = "[LSP]",
-    --             buffer = "[BUFFER]",
-    --             calc = "[CALC]",
-    --             path = "[PATH]",
-    --             spell = "[SPELL]"
-    --         })[entry.source.name]
-    --         return vim_item
-    --     end
-    -- },
 
 
     mapping = cmp.mapping.preset.insert({

@@ -21,6 +21,7 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', '<leader>lf', ':lua vim.lsp.buf.format { async = true }<CR>', opts)
     buf_set_keymap('n', '<leader>lq', ':TroubleToggle<CR>', opts)
     buf_set_keymap('n', '<leader>ll', ':Telescope lsp_workspace_symbols<CR>', opts)
+    buf_set_keymap('n', '<leader>le', ':lua vim.diagnostic.open_float()<CR>', opts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -48,6 +49,7 @@ nvim_lsp['clangd'].setup {
 nvim_lsp['lua_ls'].setup {
     on_attach = on_attach,
     settings = {
+        runtime = { version = 'LuaJIT' },
         Lua = {
             diagnostics = {
                 globals = { 'vim' },

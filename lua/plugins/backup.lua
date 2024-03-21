@@ -135,6 +135,7 @@ return require("packer").startup(function()
         'folke/trouble.nvim',
         config = function()
             require("trouble").setup({
+                icons = false,
                 multiline = true
             })
         end

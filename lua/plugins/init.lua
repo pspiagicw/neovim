@@ -41,15 +41,8 @@ require("lazy").setup({
         }
     },
     {
-        'catppuccin/nvim',
-        name = 'catppuccin'
-    },
-    {
-        dir = "/home/pspiagicw/code/other-projects/groom.nvim",
-        name = "groom",
-        config = function()
-            require("groom").setup()
-        end,
+        'pspiagicw/groom.nvim',
+        config = true,
     },
     {
         'nvim-lualine/lualine.nvim',
@@ -83,18 +76,13 @@ require("lazy").setup({
         cmd = "Mason",
         ft = { "go", "python", "c", "lua", "cpp" }
     },
-    {
-        'folke/neodev.nvim',
-        opts = {}
-    },
+    -- {
+    --     'folke/neodev.nvim',
+    --     opts = {}
+    -- },
     {
         'neovim/nvim-lspconfig',
         lazy = true
-    },
-    {
-        'echasnovski/mini.surround',
-        version = false,
-        config = true,
     },
     {
         'echasnovski/mini.pairs',
@@ -104,8 +92,13 @@ require("lazy").setup({
 
     },
     {
-        'echasnovski/mini.comment',
-        version = false,
+        "kylechui/nvim-surround",
+        version = "*", -- Use for stability; omit to use `main` branch for the latest features
+        event = "VeryLazy",
+        config = true,
+    },
+    {
+        'numToStr/Comment.nvim',
         config = true,
     },
     {
@@ -114,5 +107,57 @@ require("lazy").setup({
         lazy = false,
     },
     { "miikanissi/modus-themes.nvim", priority = 1000 },
+
+    {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        config = function()
+            require("copilot").setup({
+                filetypes = {
+                    go = true,
+                    python = true,
+                    markdown = true,
+                    ["*"] = false,
+                },
+                panel = {
+                    enabled = false
+                },
+                suggestion = {
+                    enabled = true,
+                    auto_trigger = true,
+                    accept = false,
+                    keymap = {
+                        accept = "<M-j>",
+                        next = "<M-n>",
+                        prev = "<M-p>"
+                    }
+                }
+            })
+        end,
+    },
+    {
+        "folke/tokyonight.nvim",
+        lazy = false,
+        priority = 1000,
+        opts = {},
+    },
+    {
+        "tiagovla/tokyodark.nvim",
+    },
+    {
+        "navarasu/onedark.nvim",
+    },
+    {
+        'stevearc/conform.nvim',
+        opts = {
+            notify_on_error = false,
+            format_on_save = {
+                timeout_ms = 500,
+                lsp_fallback = true,
+            }
+        }
+
+    }
 
 })

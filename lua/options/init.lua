@@ -51,3 +51,7 @@ set.spelllang = "en"
 set.scrolloff = 8 -- is one of my fav, keep n lines above and below the current line visible
 set.sidescrolloff = 8
 set.autoread = true
+set.breakindent = true -- Enable break indent
+set.inccommand = 'split' -- Preview substitions live
+-- set.list = true
+-- set.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
