@@ -60,3 +60,10 @@ nvim_lsp['lua_ls'].setup {
         debounce_text_changes = 150
     }
 }
+nvim_lsp['ocamllsp'].setup {
+    on_attach = on_attach,
+    filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
+    flags = {
+        debounce_text_changes = 150
+    }
+}

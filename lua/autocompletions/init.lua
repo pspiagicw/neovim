@@ -6,6 +6,7 @@
 -- ╚═╝     ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝ ╚═════╝ ╚══╝╚══╝
 local cmp = require("cmp")
 
+
 local cmp_opts = {
     side_padding = 2,
     scrollbar = false

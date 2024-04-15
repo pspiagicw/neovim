@@ -55,7 +55,7 @@ require("lazy").setup({
         'stevearc/dressing.nvim',
         config = true,
     },
-    { 'folke/trouble.nvim',           cmd = "TroubleToggle" },
+    { 'folke/trouble.nvim', cmd = "TroubleToggle" },
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
@@ -106,7 +106,7 @@ require("lazy").setup({
         config = true,
         lazy = false,
     },
-    { "miikanissi/modus-themes.nvim", priority = 1000 },
+    -- { "miikanissi/modus-themes.nvim", priority = 1000 },
 
     {
         "zbirenbaum/copilot.lua",
@@ -116,8 +116,6 @@ require("lazy").setup({
             require("copilot").setup({
                 filetypes = {
                     go = true,
-                    python = true,
-                    markdown = true,
                     ["*"] = false,
                 },
                 panel = {
@@ -138,15 +136,8 @@ require("lazy").setup({
     },
     {
         "folke/tokyonight.nvim",
-        lazy = false,
-        priority = 1000,
-        opts = {},
-    },
-    {
-        "tiagovla/tokyodark.nvim",
-    },
-    {
-        "navarasu/onedark.nvim",
+        lazy = true,
+        opts = { style = "night" },
     },
     {
         'stevearc/conform.nvim',
@@ -158,6 +149,15 @@ require("lazy").setup({
             }
         }
 
-    }
+    },
+    -- {
+    --     'petertriho/cmp-git',
+    -- },
+    -- {
+    --     'nyoom-engineering/oxocarbon.nvim',
+    -- },
+    -- {
+    --     "rebelot/kanagawa.nvim",
+    -- }
 
 })
