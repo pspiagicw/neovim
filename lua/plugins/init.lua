@@ -55,7 +55,13 @@ require("lazy").setup({
         'stevearc/dressing.nvim',
         config = true,
     },
-    { 'folke/trouble.nvim', cmd = "TroubleToggle" },
+    {
+        'folke/trouble.nvim',
+        cmd = "TroubleToggle",
+        opts = {
+            icons = false,
+        },
+    },
     {
         'hrsh7th/nvim-cmp',
         event = 'InsertEnter',
@@ -106,7 +112,7 @@ require("lazy").setup({
         config = true,
         lazy = false,
     },
-    -- { "miikanissi/modus-themes.nvim", priority = 1000 },
+    { "miikanissi/modus-themes.nvim", priority = 1000 },
 
     {
         "zbirenbaum/copilot.lua",
