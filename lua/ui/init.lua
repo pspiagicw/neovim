@@ -5,11 +5,4 @@
 -- ██║     ███████║██║     ██║██║  ██║╚██████╔╝██║╚██████╗╚███╔███╔╝
 -- ╚═╝     ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝ ╚═════╝ ╚══╝╚══╝
 
--- require('onedark').setup {
---     style = 'darker'
--- }
--- require('onedark').load()
--- vim.cmd [[colorscheme tokyonight-day]]
--- require("tokyodark").load()
--- vim.cmd [[colorscheme kanagawa-wave]]
-vim.cmd [[colorscheme modus_operandi]]
+vim.cmd [[colorscheme tokyonight-night]]

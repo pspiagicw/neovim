@@ -77,16 +77,6 @@ require("lazy").setup({
         lazy = true,
     },
     {
-        'williamboman/mason.nvim',
-        config = true,
-        cmd = "Mason",
-        ft = { "go", "python", "c", "lua", "cpp" }
-    },
-    -- {
-    --     'folke/neodev.nvim',
-    --     opts = {}
-    -- },
-    {
         'neovim/nvim-lspconfig',
         lazy = true
     },
@@ -113,8 +103,6 @@ require("lazy").setup({
         lazy = false,
     },
 
-    { "miikanissi/modus-themes.nvim", priority = 1000 },
-
     {
         "zbirenbaum/copilot.lua",
         cmd = "Copilot",
@@ -123,6 +111,7 @@ require("lazy").setup({
             require("copilot").setup({
                 filetypes = {
                     go = true,
+                    c = true,
                     ["*"] = false,
                 },
                 panel = {
@@ -150,6 +139,9 @@ require("lazy").setup({
     {
         'stevearc/conform.nvim',
         opts = {
+            formatters_by_ft = {
+                nix = { "alejandra" },
+            },
             notify_on_error = false,
             format_on_save = {
                 timeout_ms = 500,
@@ -158,14 +150,4 @@ require("lazy").setup({
         }
 
     },
-    -- {
-    --     'petertriho/cmp-git',
-    -- },
-    -- {
-    --     'nyoom-engineering/oxocarbon.nvim',
-    -- },
-    -- {
-    --     "rebelot/kanagawa.nvim",
-    -- }
-
 })

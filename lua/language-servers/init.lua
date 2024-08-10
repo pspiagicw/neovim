@@ -34,36 +34,17 @@ nvim_lsp['gopls'].setup {
         debounce_text_changes = 150
     }
 }
-nvim_lsp['pyright'].setup {
-    on_attach = on_attach,
-    flags = {
-        debounce_text_changes = 150
-    },
-}
--- nvim_lsp['clangd'].setup {
+-- nvim_lsp['lua_ls'].setup {
 --     on_attach = on_attach,
+--     settings = {
+--         runtime = { version = 'LuaJIT' },
+--         Lua = {
+--             diagnostics = {
+--                 globals = { 'vim' },
+--             }
+--         }
+--     },
 --     flags = {
 --         debounce_text_changes = 150
 --     }
 -- }
-nvim_lsp['lua_ls'].setup {
-    on_attach = on_attach,
-    settings = {
-        runtime = { version = 'LuaJIT' },
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' },
-            }
-        }
-    },
-    flags = {
-        debounce_text_changes = 150
-    }
-}
-nvim_lsp['ocamllsp'].setup {
-    on_attach = on_attach,
-    filetypes = { "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason", "dune" },
-    flags = {
-        debounce_text_changes = 150
-    }
-}
