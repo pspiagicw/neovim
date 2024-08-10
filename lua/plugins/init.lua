@@ -112,6 +112,7 @@ require("lazy").setup({
         config = true,
         lazy = false,
     },
+
     { "miikanissi/modus-themes.nvim", priority = 1000 },
 
     {
@@ -142,8 +143,9 @@ require("lazy").setup({
     },
     {
         "folke/tokyonight.nvim",
-        lazy = true,
-        opts = { style = "night" },
+        lazy = false,
+        opts = {},
+        priority = 1000,
     },
     {
         'stevearc/conform.nvim',

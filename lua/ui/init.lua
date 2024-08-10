@@ -9,7 +9,7 @@
 --     style = 'darker'
 -- }
 -- require('onedark').load()
--- vim.cmd [[colorscheme tokyonight-night]]
+-- vim.cmd [[colorscheme tokyonight-day]]
 -- require("tokyodark").load()
 -- vim.cmd [[colorscheme kanagawa-wave]]
-vim.cmd [[colorscheme modus_vivendi]]
+vim.cmd [[colorscheme modus_operandi]]
