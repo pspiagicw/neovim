@@ -30,6 +30,7 @@ parser_config.hotshot = {
 vim.filetype.add({ extension = { fn = 'fener', ht = 'hotshot' } })
 
 require("nvim-treesitter.configs").setup({
+    ensure_installed = { "go", "c", "vimdoc", "lua" , "query"},
     indent = {
         enable = false,
     },

@@ -17,6 +17,7 @@ cmp.setup({
         { name = 'nvim_lsp', group_index = 2 },
         { name = 'path',     group_index = 2 },
         { name = 'buffer',   group_index = 2 },
+        { name = 'tags',   group_index = 2 },
     }),
 
     window = {
@@ -28,17 +29,6 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ["<C-j>"] = cmp.mapping.select_next_item(),
         ["<C-k>"] = cmp.mapping.select_prev_item(),
-        -- ["<CR>"] = cmp.mapping({
-        --     i = function(fallback)
-        --         if cmp.visible() and cmp.get_active_entry() then
-        --             cmp.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false })
-        --         else
-        --             fallback()
-        --         end
-        --     end,
-        --     s = cmp.mapping.confirm({ select = true }),
-        --     c = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = true }),
-        -- }),
         ["<CR>"] = cmp.mapping.confirm({ select = true }),
         ["<Tab>"] = cmp.mapping(function(fallback)
             if cmp.visible() then

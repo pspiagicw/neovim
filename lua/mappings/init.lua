@@ -46,7 +46,6 @@ map('n', '<leader>ss', ':Telescope live_grep<CR>', opts)
 
 --------------- PROJECTS ------------------
 
-
 map('n', '[q', ':cprev<CR>', opts)
 map('n', ']q', ':cnext<CR>', opts)
 
