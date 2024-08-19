@@ -23,8 +23,8 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap("n", "<leader>lc", ":lua vim.lsp.buf.code_action()<CR>", opts)
 	buf_set_keymap("n", "<leader>lk", ":lua vim.lsp.buf.hover()<CR>", opts)
 	buf_set_keymap("n", "<leader>lf", ":lua vim.lsp.buf.format { async = true }<CR>", opts)
-	buf_set_keymap("n", "<leader>lq", ":TroubleToggle<CR>", opts)
-	buf_set_keymap("n", "<leader>ll", ":Telescope lsp_workspace_symbols<CR>", opts)
+	buf_set_keymap("n", "<leader>lq", ":Trouble diagnostics toggle<CR>", opts)
+	buf_set_keymap("n", "<leader>ll", ":Trouble lsp toggle focus=false win.position=right<CR>", opts)
 	buf_set_keymap("n", "<leader>le", ":lua vim.diagnostic.open_float()<CR>", opts)
 end
 

@@ -57,9 +57,10 @@ require("lazy").setup({
 	},
 	{
 		"folke/trouble.nvim",
-		cmd = "TroubleToggle",
-		opts = {
-			icons = false,
+		config = true,
+		cmd = "Trouble",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons" },
 		},
 	},
 	{
@@ -67,10 +68,10 @@ require("lazy").setup({
 		event = "InsertEnter",
 		dependencies = {
 			{ "hrsh7th/cmp-nvim-lsp" },
-			{ "hrsh7th/cmp-buffer" },
 			{ "hrsh7th/cmp-path" },
 			{ "hrsh7th/cmp-cmdline" },
 			{ "quangnguyen30192/cmp-nvim-tags" },
+			{ "onsails/lspkind.nvim" },
 		},
 	},
 	{
@@ -89,12 +90,12 @@ require("lazy").setup({
 	},
 	{
 		"kylechui/nvim-surround",
-		version = "*", -- Use for stability; omit to use `main` branch for the latest features
-		event = "VeryLazy",
+		event = "InsertEnter",
 		config = true,
 	},
 	{
 		"numToStr/Comment.nvim",
+		event = "InsertEnter",
 		config = true,
 	},
 	{
@@ -102,16 +103,14 @@ require("lazy").setup({
 		config = true,
 		lazy = false,
 	},
-
 	{
 		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
+		lazy = true,
+		ft = { "go" },
 		config = function()
 			require("copilot").setup({
 				filetypes = {
 					go = true,
-					c = true,
 					["*"] = false,
 				},
 				panel = {
@@ -138,10 +137,12 @@ require("lazy").setup({
 	},
 	{
 		"stevearc/conform.nvim",
+		ft = { "lua", "c", "nix" },
 		opts = {
 			formatters_by_ft = {
 				nix = { "alejandra" },
 				lua = { "stylua" },
+				c = { "clang-format" },
 			},
 			notify_on_error = false,
 			format_on_save = {
