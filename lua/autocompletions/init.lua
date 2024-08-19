@@ -14,9 +14,10 @@ local cmp_opts = {
 
 cmp.setup({
 	sources = cmp.config.sources({
-		{ name = "tags" },
 		{ name = "nvim_lsp" },
+		{ name = "tags" },
 		{ name = "path" },
+		{ name = "buffer" },
 	}),
 
 	formatting = {
@@ -25,6 +26,8 @@ cmp.setup({
 			menu = {
 				lsp = "[LSP]",
 				tags = "[TAG]",
+				path = "[PATH]",
+				buffer = "[BUFFER]",
 			},
 		}),
 	},
