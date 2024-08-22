@@ -11,7 +11,6 @@ local opts = { noremap = true, silent = true }
 map("i", "jk", "<Esc>", opts)
 vim.cmd("tnoremap jk <C-\\><C-n>")
 vim.g.mapleader = " "
-
 --
 --------------------- FILES -----------------
 map("n", "<leader>ff", ":Telescope find_files<CR>", opts)

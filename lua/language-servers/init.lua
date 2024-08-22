@@ -38,17 +38,17 @@ nvim_lsp["gopls"].setup({
 		debounce_text_changes = 150,
 	},
 })
--- nvim_lsp["lua_ls"].setup({
--- 	on_attach = on_attach,
--- 	settings = {
--- 		runtime = { version = "LuaJIT" },
--- 		Lua = {
--- 			diagnostics = {
--- 				globals = { "vim" },
--- 			},
--- 		},
--- 	},
--- 	flags = {
--- 		debounce_text_changes = 150,
--- 	},
--- })
+nvim_lsp["lua_ls"].setup({
+	on_attach = on_attach,
+	settings = {
+		runtime = { version = "LuaJIT" },
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
+	flags = {
+		debounce_text_changes = 150,
+	},
+})
