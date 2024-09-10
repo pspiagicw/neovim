@@ -138,12 +138,13 @@ require("lazy").setup({
 	},
 	{
 		"stevearc/conform.nvim",
-		ft = { "lua", "c", "nix" },
+		ft = { "lua", "c", "nix", "go" },
 		opts = {
 			formatters_by_ft = {
 				nix = { "alejandra" },
 				lua = { "stylua" },
 				c = { "clang-format" },
+				go = { "gofmt" },
 			},
 			notify_on_error = false,
 			format_on_save = {

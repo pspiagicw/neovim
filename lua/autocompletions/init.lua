@@ -24,7 +24,7 @@ cmp.setup({
 		format = lspkind.cmp_format({
 			mode = "text",
 			menu = {
-				lsp = "[LSP]",
+				nvim_lsp = "[LSP]",
 				tags = "[TAG]",
 				path = "[PATH]",
 				buffer = "[BUFFER]",
