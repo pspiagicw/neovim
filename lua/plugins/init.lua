@@ -105,32 +105,6 @@ require("lazy").setup({
 		lazy = false,
 	},
 	{
-		"zbirenbaum/copilot.lua",
-		lazy = true,
-		ft = { "go" },
-		config = function()
-			require("copilot").setup({
-				filetypes = {
-					go = true,
-					["*"] = false,
-				},
-				panel = {
-					enabled = false,
-				},
-				suggestion = {
-					enabled = true,
-					auto_trigger = true,
-					accept = false,
-					keymap = {
-						accept = "<M-j>",
-						next = "<M-n>",
-						prev = "<M-p>",
-					},
-				},
-			})
-		end,
-	},
-	{
 		"folke/tokyonight.nvim",
 		lazy = false,
 		opts = {},
