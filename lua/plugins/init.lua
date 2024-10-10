@@ -111,6 +111,7 @@ require("lazy").setup({
 		priority = 1000,
 	},
 	{
+
 		"stevearc/conform.nvim",
 		ft = { "lua", "c", "nix", "go" },
 		opts = {

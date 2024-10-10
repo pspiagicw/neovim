@@ -9,15 +9,28 @@
   outputs = {
     self,
     nixpkgs,
+    ...
   }: {
-    devShell.x86_64-linux = let
-      pkgs = import nixpkgs {system = "x86_64-linux";};
-    in
-      pkgs.mkShell {
-        buildInputs = [
-          pkgs.stylua
-          pkgs.lua-language-server
-        ];
-      };
+    devShells = {
+      x86_64-linux.default = let
+        pkgs = import nixpkgs {system = "x86_64-linux";};
+      in
+        pkgs.mkShell {
+          buildInputs = [
+            pkgs.stylua
+            pkgs.lua-language-server
+          ];
+        };
+
+      aarch64-linux.default = let
+        pkgs = import nixpkgs {system = "aarch64-linux";};
+      in
+        pkgs.mkShell {
+          buildInputs = [
+            pkgs.stylua
+            pkgs.lua-language-server
+          ];
+        };
+    };
   };
 }
