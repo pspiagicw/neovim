@@ -113,6 +113,7 @@ require("lazy").setup({
 	{
 
 		"stevearc/conform.nvim",
+        branch = "nvim-0.9";
 		ft = { "lua", "c", "nix", "go" },
 		opts = {
 			formatters_by_ft = {

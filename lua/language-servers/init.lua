@@ -38,6 +38,12 @@ nvim_lsp["gopls"].setup({
 		debounce_text_changes = 150,
 	},
 })
+nvim_lsp["clangd"].setup({
+	on_attach = on_attach,
+	flags = {
+		debounce_text_changes = 150,
+	},
+})
 nvim_lsp["lua_ls"].setup({
 	on_attach = on_attach,
 	settings = {
