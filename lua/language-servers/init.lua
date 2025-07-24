@@ -32,24 +32,12 @@ local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = false
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
-nvim_lsp["rust_analyzer"].setup({
+nvim_lsp["zls"].setup({
 	on_attach = on_attach,
 	flags = {
 		debounce_text_changes = 150,
 	},
 })
--- nvim_lsp["gopls"].setup({
--- 	on_attach = on_attach,
--- 	flags = {
--- 		debounce_text_changes = 150,
--- 	},
--- })
--- nvim_lsp["clangd"].setup({
--- 	on_attach = on_attach,
--- 	flags = {
--- 		debounce_text_changes = 150,
--- 	},
--- })
 nvim_lsp["lua_ls"].setup({
 	on_attach = on_attach,
 	settings = {
