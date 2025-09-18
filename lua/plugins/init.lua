@@ -120,6 +120,7 @@ require("lazy").setup({
 		config = true,
 	},
 	{ "miikanissi/modus-themes.nvim", priority = 1000 },
+	{ "rebelot/kanagawa.nvim", priority = 1000 },
 	{
 
 		"stevearc/conform.nvim",

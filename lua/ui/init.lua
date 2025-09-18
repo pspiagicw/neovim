@@ -5,4 +5,4 @@
 -- ██║     ███████║██║     ██║██║  ██║╚██████╔╝██║╚██████╗╚███╔███╔╝
 -- ╚═╝     ╚══════╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝ ╚═════╝ ╚══╝╚══╝
 
-vim.cmd([[colorscheme modus_vivendi]])
+vim.cmd([[colorscheme kanagawa-dragon]])
