@@ -27,7 +27,15 @@ parser_config.hotshot = {
 	},
 	filetype = "ht",
 }
-vim.filetype.add({ extension = { fn = "fener", ht = "hotshot" } })
+
+parser_config.tremor = {
+	install_info = {
+		url = "~/code/tree-sitter-tremor",
+		files = { "src/parser.c" },
+	},
+}
+
+vim.filetype.add({ extension = { fn = "fener", ht = "hotshot", tm = "tremor"} })
 
 require("nvim-treesitter.configs").setup({
 	ensure_installed = {
